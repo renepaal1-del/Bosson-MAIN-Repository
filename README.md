@@ -1,2 +1,2 @@
-Main repository for bosson package manager
+Main repository for Bosson package manager
 
