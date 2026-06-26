@@ -1,8 +1,23 @@
 # Bosson repository index
 # Format: name<TAB>category<TAB>version<TAB>description<TAB>manifest_path<TAB>manifest_sha256
-# Generated: 2026-06-26T02:17:49Z
-# Package-count: 3
+# Generated: 2026-06-26T06:34:18Z
+# Package-count: 18
 
-curl	net-misc	8.4.0	Command-line tool for transferring data with URL syntax	packages/net-misc/curl/package.toml	b3849c6f05837c34f0483d0ba23f54dfea25f22e12faf1853a8c0ea0e16e7017
-hello	app-misc	2.12	GNU hello prints a friendly greeting	packages/app-misc/hello/package.toml	f971ac42ccc707d21c7674db0eff19761078e9d92aaae1effda281e12c0dc8a1
-zlib	sys-libs	1.3.1	Lossless data-compression library	packages/sys-libs/zlib/package.toml	fde3f5a68091b6617b4b7904bb5528b10e92f5e3a06bd879b6c25e69e5da9646
+binutils	sys-devel	2.42	GNU binutils (assembler, linker, objdump, etc.)	packages/sys-devel/binutils/package.toml	4d049222a071c6c44b9806fdfb04fa1eddc8e93635a19068ff4528cad9884ca6
+bison	sys-devel	3.8.2	GNU Bison parser generator	packages/sys-devel/bison/package.toml	e3b62ff912ee7f10e36d32e8aba3a4c8f663fe7c0ecedb770fda82027b2fca41
+curl	net-misc	8.4.0	Command-line tool for transferring data with URL syntax	packages/net-misc/curl/package.toml	ce86aa3b877aa6d96f1d06d69e2ab133266311becd2345aef35d049f1567f086
+flex	sys-devel	2.6.4	Fast Lexical Analyzer generator	packages/sys-devel/flex/package.toml	b5f17af0b5684c0eaa9f35f89359c02c89ebf3afebfa530a789cbe04cf794eb0
+gcc	sys-devel	14.1.0	GNU Compiler Collection (C, C++, Fortran, etc.)	packages/sys-devel/gcc/package.toml	4b550a56fc6a30fc566a0539f1f40f32aaad026485fe32a97f3badfb3be03282
+glibc	sys-libs	2.39	GNU C Library (the core C library)	packages/sys-libs/glibc/package.toml	881bf2f42deb8afa86a2dcc6c3135a868cbfee76bbf8110ec83f36fc7c40f785
+gmp	dev-libs	6.3.0	GNU Multiple Precision Arithmetic Library	packages/dev-libs/gmp/package.toml	0f0fe7c86299c873e8bdae1f356228391630134d37016551dc897f5cab9b6910
+hello	app-misc	2.12	GNU hello prints a friendly greeting	packages/app-misc/hello/package.toml	077ab4a5a17e45c41af0a3319c006ab6dd8f0615c067006c8983ec98f5cdc4bb
+linux-api-headers	core-base	6.6.8	Linux kernel headers (sanitized for userspace)	packages/core-base/linux-api-headers/package.toml	7f08d1ad1aedff2e81957cc79334e4c46dcb559c456a0a8d394970fbf94224c9
+m4	sys-devel	1.4.19	GNU m4 macro processor	packages/sys-devel/m4/package.toml	c9c2df761e62e05912561df93f90a2c2105a435d59ac3f53428dd328b6815130
+make	sys-devel	4.4.1	GNU Make build automation tool	packages/sys-devel/make/package.toml	593a479b38e529a2c21005fad67fe2018970d889ff573820ed63c58f1c923e9e
+mpc	dev-libs	1.3.1	Multiple Precision Complex library	packages/dev-libs/mpc/package.toml	5bde25da72fd5e5c51a618a70c86f566bc6f33f85a58abbaff2a8bdd1811d54f
+mpfr	dev-libs	4.2.1	Multiple Precision Floating-Point Reliably	packages/dev-libs/mpfr/package.toml	a670ba3971b1503539fd0598b8daa140a6caa812ed887f352539b031071bd206
+ncurses	sys-libs	6.4	Terminal handling library (curses, terminfo)	packages/sys-libs/ncurses/package.toml	e15f736825f614144de7ebef5b4eccaa8225f567b8b43fae82f9e222a7b52456
+openssl	dev-libs	3.2.1	TLS/SSL and cryptography library	packages/dev-libs/openssl/package.toml	0c25877d430460132be36eb70766df7cd17c84297aa59b01651f32c9faa0e9aa
+perl	dev-lang	5.38.2	Perl 5 programming language	packages/dev-lang/perl/package.toml	0d841345a96928f183ec4792a1c81bb9abd66e3af4cdf907c56b86804247d872
+pkg-config	sys-devel	0.29.2	Helper for retrieving library information	packages/sys-devel/pkg-config/package.toml	0c7e2d0fe5e71cda1f1d0f3cdfd1fa00fcb7fcfd7f7cee7e745f54259efda7c1
+zlib	sys-libs	1.3.1	Lossless data-compression library	packages/sys-libs/zlib/package.toml	f47809a569c751f0a80aaafad13af4cb4195436aa29cca1b24b750c48cc3cf8e

@@ -1,15 +1,15 @@
 [package]
-name = "zlib"
-version = "1.3.1"
-description = "Lossless data-compression library"
-homepage = "https://www.zlib.net/"
-license = "Zlib"
-category = "sys-libs"
+name = "make"
+version = "4.4.1"
+description = "GNU Make build automation tool"
+homepage = "https://www.gnu.org/software/make/"
+license = "GPL-3.0-or-later"
+category = "sys-devel"
 
 [source]
-url = "https://www.zlib.net/zlib-1.3.1.tar.gz"
+url = "https://ftp.gnu.org/gnu/make/make-4.4.1.tar.gz"
 sha256 = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-# ^^^ PLACEHOLDER. REPLACE: sha256sum zlib-1.3.1.tar.gz
+# ^^^ REPLACE: sha256sum make-4.4.1.tar.gz
 
 [build]
 configure = "./configure --prefix=${PREFIX}"

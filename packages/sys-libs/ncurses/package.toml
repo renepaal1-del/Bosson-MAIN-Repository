@@ -1,0 +1,25 @@
+[package]
+name = "ncurses"
+version = "6.4"
+description = "Terminal handling library (curses, terminfo)"
+homepage = "https://www.gnu.org/software/ncurses/"
+license = "MIT"
+category = "sys-libs"
+
+[source]
+url = "https://ftp.gnu.org/gnu/ncurses/ncurses-6.4.tar.gz"
+sha256 = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+# ^^^ REPLACE: sha256sum ncurses-6.4.tar.gz
+
+[build]
+configure = "./configure --prefix=${PREFIX} --with-shared --enable-widec"
+make = "make -j${JOBS}"
+install = "make install DESTDIR=${DESTDIR}"
+
+[dependencies]
+runtime = ["glibc"]
+buildtime = ["glibc"]
+
+[spins]
+available = []
+default = []

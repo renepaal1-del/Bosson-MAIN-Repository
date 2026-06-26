@@ -1,0 +1,25 @@
+[package]
+name = "mpc"
+version = "1.3.1"
+description = "Multiple Precision Complex library"
+homepage = "https://www.multiprecision.org/"
+license = "LGPL-3.0-or-later"
+category = "dev-libs"
+
+[source]
+url = "https://ftp.gnu.org/gnu/mpc/mpc-1.3.1.tar.gz"
+sha256 = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+# ^^^ REPLACE: sha256sum mpc-1.3.1.tar.gz
+
+[build]
+configure = "./configure --prefix=${PREFIX}"
+make = "make -j${JOBS}"
+install = "make install DESTDIR=${DESTDIR}"
+
+[dependencies]
+runtime = ["gmp", "mpfr"]
+buildtime = ["gmp", "mpfr", "glibc"]
+
+[spins]
+available = []
+default = []

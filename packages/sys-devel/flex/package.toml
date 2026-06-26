@@ -1,0 +1,25 @@
+[package]
+name = "flex"
+version = "2.6.4"
+description = "Fast Lexical Analyzer generator"
+homepage = "https://github.com/westes/flex"
+license = "BSD-2-Clause"
+category = "sys-devel"
+
+[source]
+url = "https://github.com/westes/flex/releases/download/v2.6.4/flex-2.6.4.tar.gz"
+sha256 = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+# ^^^ REPLACE: sha256sum flex-2.6.4.tar.gz
+
+[build]
+configure = "./configure --prefix=${PREFIX}"
+make = "make -j${JOBS}"
+install = "make install DESTDIR=${DESTDIR}"
+
+[dependencies]
+runtime = ["glibc", "m4"]
+buildtime = ["glibc", "m4", "bison", "make"]
+
+[spins]
+available = []
+default = []

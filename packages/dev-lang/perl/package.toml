@@ -1,0 +1,25 @@
+[package]
+name = "perl"
+version = "5.38.2"
+description = "Perl 5 programming language"
+homepage = "https://www.perl.org/"
+license = "Artistic-1.0-Perl OR GPL-1.0-or-later"
+category = "dev-lang"
+
+[source]
+url = "https://www.cpan.org/src/5.0/perl-5.38.2.tar.xz"
+sha256 = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+# ^^^ REPLACE: sha256sum perl-5.38.2.tar.xz
+
+[build]
+configure = "./Configure -des -Dprefix=${PREFIX} -Duseshrplib"
+make = "make -j${JOBS}"
+install = "make install DESTDIR=${DESTDIR}"
+
+[dependencies]
+runtime = ["glibc"]
+buildtime = ["glibc", "make"]
+
+[spins]
+available = []
+default = []

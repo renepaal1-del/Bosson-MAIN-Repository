@@ -1,0 +1,25 @@
+[package]
+name = "mpfr"
+version = "4.2.1"
+description = "Multiple Precision Floating-Point Reliably"
+homepage = "https://www.mpfr.org/"
+license = "LGPL-3.0-or-later"
+category = "dev-libs"
+
+[source]
+url = "https://ftp.gnu.org/gnu/mpfr/mpfr-4.2.1.tar.xz"
+sha256 = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+# ^^^ REPLACE: sha256sum mpfr-4.2.1.tar.xz
+
+[build]
+configure = "./configure --prefix=${PREFIX}"
+make = "make -j${JOBS}"
+install = "make install DESTDIR=${DESTDIR}"
+
+[dependencies]
+runtime = ["gmp"]
+buildtime = ["gmp", "glibc"]
+
+[spins]
+available = []
+default = []

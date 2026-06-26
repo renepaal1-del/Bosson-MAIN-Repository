@@ -1,0 +1,25 @@
+[package]
+name = "openssl"
+version = "3.2.1"
+description = "TLS/SSL and cryptography library"
+homepage = "https://www.openssl.org/"
+license = "Apache-2.0"
+category = "dev-libs"
+
+[source]
+url = "https://www.openssl.org/source/openssl-3.2.1.tar.gz"
+sha256 = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+# ^^^ REPLACE: sha256sum openssl-3.2.1.tar.gz
+
+[build]
+configure = "./Configure linux-x86_64 --prefix=${PREFIX} --openssldir=/etc/ssl"
+make = "make -j${JOBS}"
+install = "make install DESTDIR=${DESTDIR}"
+
+[dependencies]
+runtime = ["glibc", "zlib"]
+buildtime = ["glibc", "zlib", "make", "perl"]
+
+[spins]
+available = []
+default = []

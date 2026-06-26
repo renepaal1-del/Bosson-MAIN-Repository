@@ -1,0 +1,32 @@
+[package]
+name = "glibc"
+version = "2.39"
+description = "GNU C Library (the core C library)"
+homepage = "https://www.gnu.org/software/libc/"
+license = "LGPL-2.1-or-later"
+category = "sys-libs"
+
+[source]
+url = "https://ftp.gnu.org/gnu/glibc/glibc-2.39.tar.xz"
+sha256 = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+# ^^^ PLACEHOLDER (sha256 of empty file). REPLACE before publishing:
+#     sha256sum glibc-2.39.tar.xz
+
+[build]
+# glibc requires a separate build directory (out-of-source build).
+# Note: glibc is built with the HOST toolchain (already-installed gcc/binutils).
+# We do NOT list gcc/binutils as buildtime deps because that would create a
+# circular dependency (gcc/binutils themselves depend on glibc at runtime).
+# This is the classic toolchain bootstrap problem — glibc must be built
+# with whatever compiler is already on the system.
+configure = "mkdir -p build && cd build && ../configure --prefix=${PREFIX} --enable-kernel=3.2 --with-headers=/usr/include"
+make = "cd build && make -j${JOBS}"
+install = "cd build && make install DESTDIR=${DESTDIR}"
+
+[dependencies]
+runtime = ["linux-api-headers"]
+buildtime = ["linux-api-headers"]
+
+[spins]
+available = []
+default = []

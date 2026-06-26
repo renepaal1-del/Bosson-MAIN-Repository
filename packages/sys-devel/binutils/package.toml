@@ -1,0 +1,27 @@
+[package]
+name = "binutils"
+version = "2.42"
+description = "GNU binutils (assembler, linker, objdump, etc.)"
+homepage = "https://www.gnu.org/software/binutils/"
+license = "GPL-3.0-or-later"
+category = "sys-devel"
+
+[source]
+url = "https://ftp.gnu.org/gnu/binutils/binutils-2.42.tar.xz"
+sha256 = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+# ^^^ PLACEHOLDER. REPLACE: sha256sum binutils-2.42.tar.xz
+
+[build]
+configure = "./configure --prefix=${PREFIX} --with-system-zlib --enable-gold --enable-ld=default"
+make = "make -j${JOBS}"
+install = "make install DESTDIR=${DESTDIR}"
+
+[dependencies]
+runtime = ["glibc", "zlib"]
+# Note: built with the HOST gcc (already installed). Listing gcc here
+# would create a circular dep (gcc depends on binutils).
+buildtime = ["glibc", "zlib"]
+
+[spins]
+available = []
+default = []

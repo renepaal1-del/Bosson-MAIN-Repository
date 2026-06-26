@@ -1,0 +1,25 @@
+[package]
+name = "linux-api-headers"
+version = "6.6.8"
+description = "Linux kernel headers (sanitized for userspace)"
+homepage = "https://www.kernel.org/"
+license = "GPL-2.0"
+category = "core-base"
+
+[source]
+url = "https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.6.8.tar.xz"
+sha256 = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+# ^^^ REPLACE: sha256sum linux-6.6.8.tar.xz
+
+[build]
+configure = "true"
+make = "make -j${JOBS} headers"
+install = "make INSTALL_HDR_PATH=${DESTDIR}/usr headers_install"
+
+[dependencies]
+runtime = []
+buildtime = []
+
+[spins]
+available = []
+default = []

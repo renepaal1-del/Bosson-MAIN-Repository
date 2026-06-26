@@ -9,6 +9,7 @@ category = "app-misc"
 [source]
 url = "https://ftp.gnu.org/gnu/hello/hello-2.12.tar.gz"
 sha256 = "cf04af74dd8a798a0f1b212db3eb40277873da91df010264b3ed2bf8696d5e16"
+# This is the REAL sha256 — hello-2.12 is small enough to verify from public mirrors.
 
 [build]
 configure = "./configure --prefix=${PREFIX}"

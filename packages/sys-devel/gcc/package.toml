@@ -1,0 +1,44 @@
+[package]
+name = "gcc"
+version = "14.1.0"
+description = "GNU Compiler Collection (C, C++, Fortran, etc.)"
+homepage = "https://gcc.gnu.org/"
+license = "GPL-3.0-or-later"
+category = "sys-devel"
+
+[source]
+url = "https://ftp.gnu.org/gnu/gcc/gcc-14.1.0/gcc-14.1.0.tar.xz"
+sha256 = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+# ^^^ PLACEHOLDER. REPLACE: sha256sum gcc-14.1.0.tar.xz
+
+[build]
+# GCC requires an out-of-source build directory and a multi-stage bootstrap.
+# The bootstrap (make bootstrap) uses the HOST gcc to build stage 1, then
+# uses stage 1 to build stage 2, etc. — so we don't list gcc as a buildtime
+# dep of itself.
+configure = "mkdir -p build && cd build && ../configure --prefix=${PREFIX} --enable-languages=c,c++ --disable-multilib --with-system-zlib"
+make = "cd build && make -j${JOBS} bootstrap"
+install = "cd build && make install DESTDIR=${DESTDIR}"
+
+[dependencies]
+runtime = ["glibc", "gmp", "mpfr", "mpc", "zlib", "binutils"]
+buildtime = ["gmp", "mpfr", "mpc", "zlib", "binutils"]
+
+[spins]
+available = ["fortran", "objc", "go"]
+default = []
+
+[spins.desc]
+fortran = "Enable Fortran language support"
+objc   = "Enable Objective-C language support"
+go     = "Enable Go language support"
+
+[spins.flags]
+fortran = "--enable-languages=c,c++,fortran"
+objc   = "--enable-languages=c,c++,objc"
+go     = "--enable-languages=c,c++,go"
+
+[spins.rdeps]
+fortran = []
+objc   = []
+go     = []
