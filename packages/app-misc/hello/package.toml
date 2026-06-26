@@ -1,0 +1,33 @@
+[package]
+name = "hello"
+version = "2.12"
+description = "GNU hello prints a friendly greeting"
+homepage = "https://www.gnu.org/software/hello/"
+license = "GPL-3.0"
+category = "app-misc"
+
+[source]
+url = "https://ftp.gnu.org/gnu/hello/hello-2.12.tar.gz"
+sha256 = "cf04af74dd8a798a0f1b212db3eb40277873da91df010264b3ed2bf8696d5e16"
+
+[build]
+configure = "./configure --prefix=${PREFIX}"
+make = "make -j${JOBS}"
+install = "make install DESTDIR=${DESTDIR}"
+
+[dependencies]
+runtime = []
+buildtime = ["gcc", "make"]
+
+[spins]
+available = ["nls"]
+default = ["nls"]
+
+[spins.desc]
+nls = "Enable Native Language Support (NLS)"
+
+[spins.flags]
+nls = "--enable-nls"
+
+[spins.rdeps]
+nls = []

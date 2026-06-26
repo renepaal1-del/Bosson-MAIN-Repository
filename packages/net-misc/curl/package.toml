@@ -1,0 +1,38 @@
+[package]
+name = "curl"
+version = "8.4.0"
+description = "Command-line tool for transferring data with URL syntax"
+homepage = "https://curl.se/"
+license = "curl"
+category = "net-misc"
+
+[source]
+url = "https://curl.se/download/curl-8.4.0.tar.gz"
+sha256 = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+# ^^^ PLACEHOLDER (sha256 of empty file). REPLACE before publishing:
+#     sha256sum curl-8.4.0.tar.gz
+
+[build]
+configure = "./configure --prefix=${PREFIX} --with-openssl"
+make = "make -j${JOBS}"
+install = "make install DESTDIR=${DESTDIR}"
+
+[dependencies]
+runtime = ["openssl"]
+buildtime = ["gcc", "make", "pkg-config"]
+
+[spins]
+available = ["ssl", "ldap"]
+default = ["ssl"]
+
+[spins.desc]
+ssl  = "Enable SSL/TLS support via OpenSSL"
+ldap = "Enable LDAP support"
+
+[spins.flags]
+ssl  = "--with-openssl"
+ldap = "--enable-ldap"
+
+[spins.rdeps]
+ssl  = ["openssl"]
+ldap = ["openldap"]
